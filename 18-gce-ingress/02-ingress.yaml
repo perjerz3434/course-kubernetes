@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: gce
+  name: gce-ingress
+spec:
+  backend:
+    serviceName: echoserver
+    servicePort: 8080
+  rules:
+  - host: perjerz.panot.me
+    http:
+      paths:
+      - backend:
+          serviceName: echoserver
+          servicePort: 8080
+        path: /*
+  tls:
+  - secretName: perjerz-secure-perjerz-panot-me-tls
+    hosts:
+    - perjerz.panot.me

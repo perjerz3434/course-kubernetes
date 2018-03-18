@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ingress-nginx
+spec:
+  type: LoadBalancer,
+  name: cdn- ingress-nginx
+  selector:
+    app: ingress-nginx
+  ports:
+  - port: 80
+    name: http
+  - port: 443
+    name: https

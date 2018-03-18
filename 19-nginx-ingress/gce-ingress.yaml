@@ -1,0 +1,15 @@
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: gce-ingress
+  name: ingress-nginx
+  annotations:
+    kubernetes.io/ingress.class: gce
+spec:
+  backend:
+    serviceName: ingress-nginx
+    servicePort: http
+  tls:
+  - secretName: perjerz-secure-perjerz-panot-me-tls
+    hosts:
+    - perjerz.panot.me
